@@ -1,0 +1,158 @@
+/* --- Core Vibe: Dark Wood & Retro --- */
+body {
+    background-color: #1a1a1c; /* Fallback */
+    /* Use a seamless dark wood texture (or leave it dark) */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace; /* Retro tech font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.jukebox-container {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(30, 30, 35, 0.95); /* Semi-transparent dark contrast */
+    border: 10px solid #2a1b10; /* Thick "wooden" border frame */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+header h1 {
+    text-align: center;
+    color: #d4af37; /* Burnished gold/brass accent */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-top: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    text-align: center;
+    color: #a0aec0;
+}
+
+.main-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* --- Record Grid Structure --- */
+.record-grid {
+    flex: 2; /* Takes more space */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    min-width: 300px;
+}
+
+/* --- The Individual Record (Button) --- */
+.record-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    perspective: 1000px; /* Essential for 3D hover effect */
+    padding: 0;
+}
+
+.vinyl-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* Keeps it perfectly square */
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Base Record Styling */
+.vinyl-record {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #333 10%, #111 11%, #050505 100%);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    border: 2px solid #000;
+}
+
+/* The Center Image (Crucial Part) */
+.vinyl-center {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #000; /* Vinyl ring border */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* The small spindle hole */
+.vinyl-center::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px; height: 10px;
+    background: #1a1a1c;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+/* --- Interactions & Animations --- */
+
+/* Hover Effect: Gentle 3D tilt */
+.record-item:hover .vinyl-wrapper {
+    transform: rotateY(15deg) rotateX(5deg);
+}
+
+/* Spinning Animation Class (applied via JS) */
+.spinning {
+    animation: spinRecord 4s linear infinite;
+}
+
+@keyframes spinRecord {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Active State: Slight glow when selected */
+.record-item.active .vinyl-record {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); /* Gold glow */
+}
+
+/* --- Spotify Player Area --- */
+.player-area {
+    flex: 1.2;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#spotify-player-container {
+    width: 100%;
+    max-width: 350px;
+    height: 450px; /* Standard Spotify embed height */
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky; /* Keeps player visible while scrolling the grid */
+    top: 20px;
+}
+
+.placeholder-player {
+    color: #555;
+    font-size: 1.2rem;
+    text-align: center;
+}

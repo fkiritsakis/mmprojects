@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Photo Darkroom</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="darkroom-bg">
+        
+        <div class="string-line"></div>
+
+        <div class="gallery-container" id="gallery">
+            </div>
+
+        <div class="controls">
+            <button id="unlock-btn" class="retro-btn select-btn" onclick="checkPassword()">🔒 Unlock Darkroom</button>
+
+            <div id="admin-actions" class="hidden">
+                <label for="photo-upload" class="retro-btn add-btn">
+                    <span>➕ Pin a Memory</span>
+                </label>
+                <input type="file" id="photo-upload" accept="image/*" style="display: none;" onchange="handleUpload(event)">
+                <button class="retro-btn lock-btn" onclick="lockDarkroom()">🔒 Lock</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
