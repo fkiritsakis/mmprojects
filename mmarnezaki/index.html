@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Η Ιστορία μας ✨</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Μέχρι στιγμής</h1>
+        <p>60 μέρες Κυριτσάκη - Μαρνέζου. Χαρούμενη επέτειο ματάκια μου! ❤️</p>
+    </header>
+
+    <main class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <section class="timeline-node">
+            <div class="node-badge">01</div>
+            <div class="node-content">
+                <span class="date">Day 0</span>
+                <h2>Η πρώτη Παραγγελιά 🎵</h2>
+                <p>Το πρώτο τραγούδι που μου ζήτησες αφού ξεσκάλωσα τη Ταμειακή με το POS</p>
+                
+                <audio id="timeline-audio-1" src="music/Whitesnake.mp3"></audio>
+                
+                <button class="audio-btn" onclick="toggleAudio('timeline-audio-1', this)">
+                    <span class="btn-icon">▶️</span> Play Song
+                </button>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">02</div>
+            <div class="node-content">
+                <span class="date">The Beginning</span>
+                <h2>Απλά, λυτά, to the point 🤭</h2>
+                <blockquote class="joke-quote">"Έχεις Κοπέλα;"</blockquote>
+                <p>Επιθετικότατη πεσιματική σε ανυποψίαστο DJ</p>
+            </div>
+        </section>
+
+
+        <section class="timeline-node">
+            <div class="node-badge">03</div>
+            <div class="node-content">
+                <span class="date">Day 1</span>
+                <h2>Η ιστορία του γάμου μας 💍</h2>
+                <p>Μοιραστήκαμε την ιστορία του γάμου μας. Το πρώτο μας τραγούδι και το γεγονός ότι είμαι (ακόμα) σίγουρος ότι μου κρύβεις παιδί/παιδιά.</p>
+                <audio id="timeline-audio-2" src="music/RozAkrides.mp3"></audio>
+                
+                <button class="audio-btn" onclick="toggleAudio('timeline-audio-2', this)">
+                    <span class="btn-icon">▶️</span> Play Song
+                </button>
+                <div class="polaroid">
+                    <img src="images/PetrosPelicanOfMykonos.jpg" alt="Our first photo together">
+                    <p class="caption">Πέτρος, αλλιώς, Ο Πελεκάνος της Μυκόνου</p>
+                </div>
+                
+            </div>
+        </section>
+
+        
+
+        <section class="timeline-node">
+            <div class="node-badge">04</div>
+            <div class="node-content">
+                <span class="date">Day 3</span>
+                <h2>Το Journey 💿</h2>
+                <p>Παραλίγο να μην εμφανιστώ. Εμφανίστικα, εμφανίστηκες και συ. Μια κούκλα. Ερωτεύτηκα τα μούτρα σου, τα μάτια σου και τον ενθουσιασμό σου. Από τα καλύτερα ραντεβού που έχω βγει στη ζωή μου. </p>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">05</div>
+            <div class="node-content">
+                <span class="date">Day 6</span>
+                <h2>Αρνεμούσι 🍃🌧☔💦</h2>
+                <blockquote class="joke-quote">"Σα ποίημα σουρεάλ..."</blockquote>
+                <p>Μικρό ραντεβουδάκι στο Αρνεμούσι, φαγητό, συζητήσεις, πολύ γέλιο. Ήσουν εκείνη τη μέρα, και είσαι ακόμα, μια πανέμορφη, πανέξυπνη γυναικάρα. Στο τέλος έβρεχε και σα σωστός παίκτης είχα φροντίσει να έχω ομπρέλα για 2 άτομα.</p>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">06</div>
+            <div class="node-content">
+                <span class="date">Day 8</span>
+                <h2>Η αρχή της καταστροφής 🎲</h2>
+                <p>Τάβλι στο Αλάβαστρο... Η αρχή του εθισμού και της προσωπικής μου καταστροφής στις πόρτες και το ασόδυο. Έχω κερδίσει στο ασόδυο μετρημένα 7 φορές από εκείνη τη μέρα</p>
+                <div class="polaroid">
+                    <img src="images/img30062026_02.jpg" alt="Το τάβλι της ντροπής">
+                    <p class="caption">Δεν είναι από εκείνη τη μέρα αλλά είναι αντιπροσωπευτικό παράδειγμα του πέους που απλόχερα κερνάς... ΓΜΤΠΤΝΜ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">07</div>
+            <div class="node-content">
+                <span class="date">Day 14</span>
+                <h2>Απ' τα χαμηλά στα ψηλά 🌊⛰️</h2>
+                <p>Βραδινό μπανάκι και άραγμα στο βουνό με μπυράκια. *Ξέχασες* το Αουτάν. Φύγαμε σα κυνηγημένοι από τη παραλία στη Μέση, αφού εσύ, μόνη σου τελείως, ξέχασες το Αουτάν και πήγαμε στο φρούριο στο βουνό.</p>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">08</div>
+            <div class="node-content">
+                <span class="date">Day 22</span>
+                <h2>Πρώτη βόλτα - Δεύτερη Ταβέρνα 🌊🦐</h2>
+                <p>Κάναμε τη πρώτη μας βόλτα στο Φανάρι. Δε βγήκαμε μαζί κάποια φωτογραφία. Το σκεφτόμουν από τη στιγμή που φτάσαμε.</p>
+                <div class="polaroid">
+                    <img src="images/img01052026.jpg" alt="Our first photo together">
+                    <p class="caption">Μπορεί να μη βγήκαμε φωτογραφία με το "πιπινάκι" αλλά έβγαλα φωτογραφία τη θέα</p>
+                </div>
+                </button>
+            </div>
+        </section>
+
+        
+
+        <section class="timeline-node">
+            <div class="node-badge">09</div>
+            <div class="node-content">
+                <span class="date">Day 37</span>
+                <h2>Ξάνθη Vol.01 🥰</h2>
+                <div class="polaroid">
+                    <img src="images/img16062026.jpg" alt="Our third photo together">
+                    <p class="caption">Η πρώτη μας φωτογραφία</p>
+                </div>
+                <p>Τη χαζεύω πολύ συχνά. Ωραία μέρα. Ξάνθη μετά τη δουλειά. Τρέχαμε να προλάβουμε μη χάσεις το "meeting" στο Κέδρο. Μπαίνοντας στο αμάξι με το παγωτό σου.</p>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">10</div>
+            <div class="node-content">
+                <span class="date">ΟΥΠΣ</span>
+                <h2>Σου ξέφυγε 🤫</h2>
+                <div class="polaroid">
+                    <img src="images/img24062026.jpg" alt="Our third photo together">
+                    <p class="caption">Έλα πάμε παραλία</p>
+                </div>
+                <p>Μιλούσες με τα παιδία. Σου έστριψα τσιγάρο χωρίς να το ζητήσεις. Σου ξέφυγε ένα "Σ' αγαπώ"</p>
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">11</div>
+            <div class="node-content">
+                <span class="date">Day 51</span>
+                <h2>Χατζιζαμάνη, Φανάρι Φεστ - Day 03 🎸</h2>
+                <p>Είπα στο τρελό μωράκι τ' ουρανού ότι είμαι βαθύτατα ερωτευμένος με το άτομό του, να ούμε και ότι το αγαπάω.</p>
+                <audio id="timeline-audio-3" src="music/Xatzifrageta.mp3"></audio>
+                
+                <button class="audio-btn" onclick="toggleAudio('timeline-audio-3', this)">
+                    <span class="btn-icon">▶️</span> Play Song
+                </button>
+                <div class="polaroid">
+                    <img src="images/img30062026.jpg" alt="Our first photo together">
+                    <p class="caption">Ήλιος, Θάλασσα, Αμουδιά. Τι άλλο θέλει η καρδιά</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="timeline-node">
+            <div class="node-badge">12</div>
+            <div class="node-content">
+                <span class="date">Τα δύσκολα γίνονται εύκολα</span>
+                <h2>Συζητήσεις και εξομολογήσεις 📝</h2>
+                <p>3 τσιγάρα την ημέρα, πρωινά σημειώματα και σουβλάκια (καλαμάκια) στο βουνό.</p>
+                <audio id="timeline-audio-4" src="music/ArcticMonkeys.mp3"></audio>
+                
+                <button class="audio-btn" onclick="toggleAudio('timeline-audio-4', this)">
+                    <span class="btn-icon">▶️</span> Play Song
+                </button>
+                <div class="polaroid">
+                    <img src="images/imgConf.jpg" alt="Our first photo together">
+                    <p class="caption">Eξομολόγηση τύπου Σιδηρόπουλος</p>
+                </div>
+                <div class="polaroid">
+                    <img src="images/img05072026.jpg" alt="Our first photo together">
+                    <p class="caption">Soyvlaki (Kalamaki) Radevoydaki</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="timeline-node" id="final-node">
+            <div class="node-badge">13</div>
+            <div class="node-content" style="border: 2px dashed var(--primary-color);">
+                <span class="date">Το σήμερα & ακόμα παραπέρα 🌌</span>
+                <h2>Κιόλας 2 μήνες! 🎉</h2>
+                <p>Δε πίστευα ότι σε τόσο σύντομο χρονικό διάστημα θα ανυπομονούσα τόσο πολύ για ότι μπορεί να έρχεται. 
+                    Δύο μήνες γεμάτοι όμορφες στιγμές. Χαρούμενη επέτειο 2 μηνών, σε αγαπάω! (Όχι ομοφυλοφιλικά!)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Τα ξαμαλέμε το Μήνα #3... 😉</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
