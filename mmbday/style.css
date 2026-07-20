@@ -260,7 +260,7 @@ body {
 }
 
 .letter-content {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', 'Comic Sans MS', cursive;
   font-size: 1.55rem;
   line-height: 1.5;
   color: var(--ink-color);
@@ -268,6 +268,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* Disable automatic ligatures that trigger lunate 'C' replacements on mobile WebKit */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
 }
 
 .letter-text {
@@ -289,18 +292,23 @@ body {
 }
 
 .hbd-header {
-  font-family: 'Dancing Script', cursive; /* Greek-compatible cursive */
+  font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
   color: var(--accent);
   margin-bottom: 16px;
   filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.15));
+  /* Disable automatic ligatures that trigger lunate 'C' replacements on mobile WebKit */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
 }
 
 .love-footer {
-  font-family: 'Dancing Script', cursive; /* Greek-compatible cursive */
+  font-family: 'Dancing Script', cursive;
   font-size: 2.1rem;
   color: #e11d48;
   margin-top: 16px;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
 }
 
 /* Polaroid Frame */
@@ -355,6 +363,8 @@ body {
   color: #475569;
   font-size: 1.3rem;
   margin-top: 12px;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
 }
 
 /* Mobile responsive rules */
@@ -382,7 +392,7 @@ body {
     );
   }
 
-  /* Ensures handwritten letter displays top, photo page below on phones */
+  /* Ensures handwritten letter displays on top, photo page below on phones */
   .page-left {
     order: 1;
     padding-right: 0;
