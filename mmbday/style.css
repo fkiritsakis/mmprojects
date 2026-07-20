@@ -7,7 +7,6 @@
   
   /* Physical Paper Styling */
   --paper-cream: #fbf8f3;
-  --paper-texture-shadow: rgba(0, 0, 0, 0.04);
   --ink-color: #2c3540;
 }
 
@@ -216,7 +215,6 @@ body {
   border-radius: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Heavy physical drop shadow & card thickness effect */
   box-shadow: 
     0 30px 60px -12px rgba(0, 0, 0, 0.7),
     0 18px 36px -18px rgba(0, 0, 0, 0.5),
@@ -228,7 +226,7 @@ body {
   overflow: hidden;
 }
 
-/* 3D Center Fold / Crease */
+/* 3D Center Crease Shadow */
 .card-crease {
   position: absolute;
   top: 0;
@@ -263,7 +261,7 @@ body {
 
 .letter-content {
   font-family: 'Caveat', cursive;
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   line-height: 1.5;
   color: var(--ink-color);
   height: 100%;
@@ -280,7 +278,7 @@ body {
   text-align: right;
   font-weight: 700;
   color: var(--accent);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
 /* Right Page: Photo & Typography */
@@ -291,27 +289,26 @@ body {
 }
 
 .hbd-header {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.1rem;
+  font-family: 'Marck Script', cursive;
+  font-size: 2.3rem;
   color: var(--accent);
   margin-bottom: 16px;
   filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.15));
 }
 
 .love-footer {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.7rem;
+  font-family: 'Marck Script', cursive;
+  font-size: 2rem;
   color: #e11d48;
   margin-top: 16px;
 }
 
-/* Physical Vintage Polaroid Frame */
+/* Polaroid Frame */
 .polaroid-frame {
   position: relative;
   background: #ffffff;
   padding: 12px 12px 28px 12px;
   border-radius: 2px;
-  /* Multi-layered shadow to make the photo pop off the card paper */
   box-shadow: 
     0 8px 16px rgba(0, 0, 0, 0.15),
     0 2px 4px rgba(0, 0, 0, 0.1);
@@ -326,7 +323,6 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Washi Tape Accent on Polaroid */
 .tape-strip {
   position: absolute;
   top: -12px;
@@ -334,7 +330,7 @@ body {
   transform: translateX(-50%) rotate(-3deg);
   width: 70px;
   height: 22px;
-  background-color: rgba(254, 240, 138, 0.65); /* Semi-transparent yellow tape */
+  background-color: rgba(254, 240, 138, 0.65);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   backdrop-filter: blur(1px);
   z-index: 5;
@@ -357,11 +353,11 @@ body {
 .photo-caption {
   font-family: 'Caveat', cursive;
   color: #475569;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   margin-top: 12px;
 }
 
-/* Responsive adjust for mobile */
+/* Responsive adjustment for mobile */
 @media (max-width: 680px) {
   .physical-card {
     grid-template-columns: 1fr;
@@ -370,7 +366,6 @@ body {
   }
 
   .card-crease {
-    /* Horizontal fold shadow on stacked phone view */
     top: 50%;
     left: 0;
     right: 0;
@@ -387,13 +382,14 @@ body {
     );
   }
 
+  /* Fixed order so the handwritten letter shows on top, photo below */
   .page-left {
-    order: 2;
+    order: 1;
     padding-right: 0;
   }
 
   .page-right {
-    order: 1;
+    order: 2;
     padding-left: 0;
   }
 }
