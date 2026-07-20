@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&display=swap&subset=greek,greek-ext');
+
 :root {
   --bg-color: #0b1120;
   --accent: #f43f5e;
@@ -26,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 16px 12px;
   overflow-x: hidden;
   position: relative;
 }
@@ -43,12 +46,12 @@ body {
 
 .container {
   width: 100%;
-  max-width: 820px;
+  max-width: 440px; /* Optimal vertical card width for mobile screens */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .hidden {
@@ -62,9 +65,9 @@ body {
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   color: var(--text-muted);
   letter-spacing: 0.5px;
 }
@@ -72,23 +75,21 @@ body {
 .timer-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 .time-box {
   background: #1e293b;
-  padding: 12px 4px;
-  border-radius: 12px;
+  padding: 10px 2px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .time-val {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent);
   display: block;
@@ -96,7 +97,7 @@ body {
 }
 
 .time-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-muted);
@@ -120,9 +121,9 @@ body {
 }
 
 @keyframes pulseSway {
-  0% { transform: scale(1) rotate(-5deg); }
-  50% { transform: scale(1.06) rotate(5deg); }
-  100% { transform: scale(1) rotate(-5deg); }
+  0% { transform: scale(1) rotate(-3deg); }
+  50% { transform: scale(1.05) rotate(3deg); }
+  100% { transform: scale(1) rotate(-3deg); }
 }
 
 .envelope {
@@ -191,154 +192,100 @@ body {
   transform: scale(0.95);
 }
 
-/* Real Physical Card Styling */
+/* Vertical Unfold Animation */
 #revealed-card {
   width: 100%;
   perspective: 1200px;
-  animation: openCard 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes openCard {
+.vertical-card {
+  position: relative;
+  background-color: var(--paper-cream);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+    inset 0 0 30px rgba(0, 0, 0, 0.03);
+  padding: 28px 20px;
+  gap: 24px;
+  transform-origin: top center;
+  animation: verticalUnfold 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes verticalUnfold {
   from {
     opacity: 0;
-    transform: rotateX(20deg) translateY(40px) scale(0.9);
+    transform: rotateX(-60deg) translateY(-30px);
   }
   to {
     opacity: 1;
-    transform: rotateX(0deg) translateY(0) scale(1);
+    transform: rotateX(0deg) translateY(0);
   }
 }
 
-.physical-card {
-  position: relative;
-  background-color: var(--paper-cream);
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  box-shadow: 
-    0 30px 60px -12px rgba(0, 0, 0, 0.7),
-    0 18px 36px -18px rgba(0, 0, 0, 0.5),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.8),
-    inset 0 0 30px rgba(0, 0, 0, 0.03);
-  padding: 36px 28px;
-  gap: 36px;
-  transform-style: preserve-3d;
-  overflow: hidden;
-}
-
-/* 3D Center Crease Shadow */
-.card-crease {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 30px;
-  transform: translateX(-50%);
+/* Horizontal Crease Line */
+.card-crease-horizontal {
+  width: 100%;
+  height: 16px;
+  margin: -8px 0;
   background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.08) 0%,
-    rgba(0, 0, 0, 0.18) 45%,
-    rgba(0, 0, 0, 0.22) 50%,
-    rgba(0, 0, 0, 0.08) 55%,
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.06) 40%,
+    rgba(0, 0, 0, 0.12) 50%,
+    rgba(0, 0, 0, 0.06) 60%,
     rgba(0, 0, 0, 0) 100%
   );
   pointer-events: none;
-  z-index: 10;
 }
 
-.card-page {
-  position: relative;
-  z-index: 2;
+.card-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Left Page: Letter */
-.page-left {
-  padding-right: 12px;
-}
-
-.letter-content {
-  font-family: 'Caveat', 'Comic Sans MS', cursive;
-  font-size: 1.55rem;
-  line-height: 1.5;
-  color: var(--ink-color);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* Disable automatic ligatures that trigger lunate 'C' replacements on mobile WebKit */
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0;
-}
-
-.letter-text {
-  margin-bottom: 14px;
-}
-
-.letter-signature {
-  text-align: right;
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 1.7rem;
-}
-
-/* Right Page: Photo & Typography */
-.page-right {
   align-items: center;
+  width: 100%;
+}
+
+/* Top Section: Photo */
+.section-top {
   text-align: center;
-  padding-left: 12px;
 }
 
 .hbd-header {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.4rem;
+  font-family: 'Dancing Script', 'Caveat', cursive, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.15));
-  /* Disable automatic ligatures that trigger lunate 'C' replacements on mobile WebKit */
   font-variant-ligatures: none;
-  font-feature-settings: "liga" 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-.love-footer {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.1rem;
-  color: #e11d48;
-  margin-top: 16px;
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0;
-}
-
-/* Polaroid Frame */
 .polaroid-frame {
   position: relative;
   background: #ffffff;
-  padding: 12px 12px 28px 12px;
+  padding: 10px 10px 24px 10px;
   border-radius: 2px;
   box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: rotate(2.5deg);
-  transition: transform 0.3s ease;
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1.5deg);
   width: 100%;
-  max-width: 250px;
-}
-
-.polaroid-frame:hover {
-  transform: rotate(0deg) scale(1.03);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  max-width: 230px;
+  margin: 0 auto;
 }
 
 .tape-strip {
   position: absolute;
-  top: -12px;
+  top: -10px;
   left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 70px;
-  height: 22px;
-  background-color: rgba(254, 240, 138, 0.65);
+  transform: translateX(-50%) rotate(-2deg);
+  width: 65px;
+  height: 20px;
+  background-color: rgba(254, 240, 138, 0.7);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   backdrop-filter: blur(1px);
   z-index: 5;
@@ -359,47 +306,49 @@ body {
 }
 
 .photo-caption {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', cursive, sans-serif;
   color: #475569;
   font-size: 1.3rem;
-  margin-top: 12px;
+  font-weight: 700;
+  margin-top: 10px;
   font-variant-ligatures: none;
-  font-feature-settings: "liga" 0;
 }
 
-/* Mobile responsive rules */
-@media (max-width: 680px) {
-  .physical-card {
-    grid-template-columns: 1fr;
-    padding: 28px 18px;
-    gap: 32px;
-  }
+/* Bottom Section: Letter */
+.section-bottom {
+  padding-top: 4px;
+}
 
-  .card-crease {
-    top: 50%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 30px;
-    transform: translateY(-50%);
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.08) 0%,
-      rgba(0, 0, 0, 0.18) 45%,
-      rgba(0, 0, 0, 0.22) 50%,
-      rgba(0, 0, 0, 0.08) 55%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  }
+.letter-content {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink-color);
+  width: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* Ensures handwritten letter displays on top, photo page below on phones */
-  .page-left {
-    order: 1;
-    padding-right: 0;
-  }
+.letter-text {
+  margin-bottom: 12px;
+}
 
-  .page-right {
-    order: 2;
-    padding-left: 0;
-  }
+.letter-signature {
+  text-align: right;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
+
+.love-footer {
+  font-family: 'Dancing Script', 'Caveat', cursive, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e11d48;
+  margin-top: 20px;
+  text-align: center;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
 }

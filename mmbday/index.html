@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Happy Birthday!</title>
-  <!-- Updated Google Fonts with Dancing Script & Caveat for Greek -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script:wght@700&display=swap&subset=greek,greek-ext" rel="stylesheet">
-<!-- Canvas Confetti Library -->
+  <title>Χρόνια Πολλά!</title>
+  
+  <!-- Direct preconnect & Google Fonts with explicit Greek subsetting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;600;700&display=swap&subset=greek,greek-ext" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2.0" />
 </head>
 <body>
 
@@ -20,32 +22,32 @@
   <main class="container">
     <!-- Countdown Header Section -->
     <header id="countdown-header">
-      <h1 class="title">Counting down to July 24th</h1>
+      <h1 class="title">Αντίστροφη μέτρηση για τις 24 Ιουλίου</h1>
       <div class="timer-grid">
         <div class="time-box">
           <span class="time-val" id="months">00</span>
-          <span class="time-label">Μηνες</span>
+          <span class="time-label">Μήνες</span>
         </div>
         <div class="time-box">
           <span class="time-val" id="days">00</span>
-          <span class="time-label">Μερες</span>
+          <span class="time-label">Ημέρες</span>
         </div>
         <div class="time-box">
           <span class="time-val" id="hours">00</span>
-          <span class="time-label">Ωρες</span>
+          <span class="time-label">Ώρες</span>
         </div>
         <div class="time-box">
           <span class="time-val" id="minutes">00</span>
-          <span class="time-label">Λεπτα</span>
+          <span class="time-label">Λεπτά</span>
         </div>
         <div class="time-box">
           <span class="time-val" id="seconds">00</span>
-          <span class="time-label">Δεύτερα</span>
+          <span class="time-label">Δευτ</span>
         </div>
       </div>
     </header>
 
-    <!-- Pulsating & Rotating Envelope Card -->
+    <!-- Pulsating & Rotating Envelope Zone -->
     <section id="interactive-zone">
       <div id="card-wrapper" class="animated-card">
         <div class="envelope">
@@ -55,50 +57,55 @@
         </div>
       </div>
       
-      <!-- Lock status / Open Button -->
       <div id="action-prompt">
-        <p id="lock-msg" class="prompt-text">🔒 Η κάρτα θα ξεκλειδώσει στις 24 Ιουλίου!</p>
-        <button id="open-btn" class="open-button hidden">Πάτησέ με για να ανοίξεις τη κάρτα ✨</button>
+        <p id="lock-msg" class="prompt-text">🔒 Η κάρτα ανοίγει στις 24 Ιουλίου!</p>
+        <button id="open-btn" class="open-button hidden">Πίεσε για να ανοίξεις την κάρτα ✨</button>
       </div>
     </section>
 
-    <!-- Revealed Physical Bi-Fold Card Content -->
+    <!-- Vertical Booklet Card -->
     <section id="revealed-card" class="hidden">
-      <div class="physical-card">
-        <!-- 3D Center Crease Shadow -->
-        <div class="card-crease"></div>
+      <div class="vertical-card">
+        
+        <!-- Top Half: Photo & Main Greeting -->
+        <div class="card-section section-top">
+          <h2 class="hbd-header">Χρόνια Πολλά!</h2>
+          
+          <div class="polaroid-frame">
+            <div class="tape-strip"></div>
+            <div class="image-container">
+              <img src="marnezaki.jpg" alt="Η αγαπημένη μας στιγμή" id="bday-photo" />
+            </div>
+            <p class="photo-caption">Το πιο όμορφο χαμόγελο! ✨</p>
+          </div>
+        </div>
 
-        <!-- Left Page: Hand-written Letter -->
-        <div class="card-page page-left">
+        <!-- Horizontal Crease Line (Fold Mark) -->
+        <div class="card-crease-horizontal"></div>
+
+        <!-- Bottom Half: Handwritten Letter & Love Note -->
+        <div class="card-section section-bottom">
           <div class="letter-content">
             <p class="letter-text">
               Στο πιο απίθανο άνθρωπο...
             </p>
             <p class="letter-text">
               Είσαι άνθρωπος που γεμίζει τους γύρω του ενέργεια, χαρά, γέλιο και ζεστασιά. Σε ευχαριστώ που μοιράζεσαι λίγο από τον εαυτό σου μαζί μου και κάνεις όλες τις στιγμές μας πιο όμορφες. Χρόνια σου πολλά και χαρούμενα Μαρνέζογλου!
+
             </p>
             <div class="letter-signature">— Αθεράπευτα Ερωτευμένος</div>
           </div>
+
+          <h3 class="love-footer">Σ' αγαπώ πολύ ❤️</h3>
         </div>
 
-        <!-- Right Page: Photo & Header -->
-        <div class="card-page page-right">
-          <h2 class="hbd-header">Χρόνια σου Πολλά!</h2>
-          
-          <div class="polaroid-frame">
-            <div class="tape-strip"></div>
-            <div class="image-container">
-              <img src="marnezaki.jpg" alt="Το πιο όμορφο χαμόγελο!" id="bday-photo" />
-            </div>
-            <p class="photo-caption">Το πιο όμορφο χαμόγελο! ✨</p>
-          </div>
-
-          <h3 class="love-footer">Σε αγαπάω ❤️</h3>
-        </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2.0"></script>
 </body>
 </html>
+
+
+
