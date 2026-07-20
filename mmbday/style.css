@@ -289,16 +289,16 @@ body {
 }
 
 .hbd-header {
-  font-family: 'Marck Script', cursive;
-  font-size: 2.3rem;
+  font-family: 'Dancing Script', cursive; /* Greek-compatible cursive */
+  font-size: 2.4rem;
   color: var(--accent);
   margin-bottom: 16px;
   filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.15));
 }
 
 .love-footer {
-  font-family: 'Marck Script', cursive;
-  font-size: 2rem;
+  font-family: 'Dancing Script', cursive; /* Greek-compatible cursive */
+  font-size: 2.1rem;
   color: #e11d48;
   margin-top: 16px;
 }
@@ -357,7 +357,7 @@ body {
   margin-top: 12px;
 }
 
-/* Responsive adjustment for mobile */
+/* Mobile responsive rules */
 @media (max-width: 680px) {
   .physical-card {
     grid-template-columns: 1fr;
@@ -382,7 +382,7 @@ body {
     );
   }
 
-  /* Fixed order so the handwritten letter shows on top, photo below */
+  /* Ensures handwritten letter displays top, photo page below on phones */
   .page-left {
     order: 1;
     padding-right: 0;
