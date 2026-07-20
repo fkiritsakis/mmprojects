@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateCountdown() {
     const now = new Date();
-    const target = new Date(`July 20, ${now.getFullYear()} 00:00:00`);
+    const target = new Date(`July 24, ${now.getFullYear()} 00:00:00`);
     const distance = target.getTime() - now.getTime();
 
     if (distance <= 0) {
