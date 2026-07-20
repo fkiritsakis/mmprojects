@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const currentYear = new Date().getFullYear();
 
-  // Elements
+  // Countdown Elements
   const monthsEl = document.getElementById('months');
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');
   const secondsEl = document.getElementById('seconds');
 
+  // Interactive Stage Elements
+  const cardWrapper = document.getElementById('card-wrapper');
+  const heartSeal = document.getElementById('heart-seal');
+  const envFlap = document.getElementById('env-flap');
+  const cardPreview = document.getElementById('card-preview');
+  
   const interactiveZone = document.getElementById('interactive-zone');
   const lockMsg = document.getElementById('lock-msg');
   const openBtn = document.getElementById('open-btn');
   const revealedCard = document.getElementById('revealed-card');
 
+  // Start initial sway
+  cardWrapper.classList.add('idle-sway');
+
   function updateCountdown() {
     const now = new Date();
     const target = new Date(`July 20, ${now.getFullYear()} 00:00:00`);
-
     const distance = target.getTime() - now.getTime();
 
     if (distance <= 0) {
@@ -32,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let months = (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth());
-    
     const tempDate = new Date(now);
     tempDate.setMonth(tempDate.getMonth() + months);
     if (tempDate > target) {
@@ -43,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const diffTime = target - tempDate;
     const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diffTime % (1000 * 600 * 60)) / (1000 * 60));
+    const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
 
     monthsEl.textContent = String(Math.max(0, months)).padStart(2, '0');
@@ -64,28 +70,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
   }
 
-  // Card Open Trigger & Celebration
+  // Choreographed Opening Sequence
   openBtn.addEventListener('click', () => {
-    interactiveZone.classList.add('hidden');
-    revealedCard.classList.remove('hidden');
+    openBtn.style.pointerEvents = 'none';
+    openBtn.style.opacity = '0.5';
 
+    // Step 1: Freeze gentle sway & pop heart seal
+    cardWrapper.classList.remove('idle-sway');
+    heartSeal.classList.add('heart-pop');
+
+    // Step 2: Unfold top flap after seal vanishes (300ms)
+    setTimeout(() => {
+      envFlap.classList.add('flap-open');
+    }, 300);
+
+    // Step 3: Slide preview card out of envelope (700ms)
+    setTimeout(() => {
+      cardPreview.classList.add('card-slide-out');
+    }, 700);
+
+    // Step 4: Swap envelope zone for the full vertical unfolded card (1400ms)
+    setTimeout(() => {
+      interactiveZone.classList.add('hidden');
+      revealedCard.classList.remove('hidden');
+
+      // Trigger Fireworks & Confetti
+      triggerCelebration();
+    }, 1400);
+  });
+
+  function triggerCelebration() {
     if (typeof confetti === 'function') {
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 120,
+        spread: 80,
         origin: { y: 0.6 }
       });
 
       setTimeout(() => {
-        confetti({ particleCount: 50, angle: 60, spread: 50, origin: { x: 0 } });
-        confetti({ particleCount: 50, angle: 120, spread: 50, origin: { x: 1 } });
-      }, 200);
+        confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } });
+      }, 250);
     }
 
     startFireworks();
-  });
+  }
 
-  // Custom Fireworks Particle Engine
   function startFireworks() {
     const canvas = document.getElementById('fireworks-canvas');
     const ctx = canvas.getContext('2d');
@@ -97,10 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const colors = ['#f43f5e', '#38bdf8', '#facc15', '#a855f7', '#34d399'];
 
     function createFirework(x, y) {
-      const count = 35;
+      const count = 40;
       for (let i = 0; i < count; i++) {
         const angle = (Math.PI * 2 / count) * i;
-        const speed = Math.random() * 4 + 2;
+        const speed = Math.random() * 4.5 + 2;
         particles.push({
           x: x,
           y: y,
@@ -112,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    createFirework(canvas.width * 0.3, canvas.height * 0.3);
-    setTimeout(() => createFirework(canvas.width * 0.7, canvas.height * 0.25), 250);
+    createFirework(canvas.width * 0.25, canvas.height * 0.35);
+    setTimeout(() => createFirework(canvas.width * 0.75, canvas.height * 0.3), 200);
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -122,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         p.x += p.vx;
         p.y += p.vy;
         p.vy += 0.05;
-        p.alpha -= 0.018;
+        p.alpha -= 0.016;
 
         ctx.globalAlpha = Math.max(0, p.alpha);
         ctx.fillStyle = p.color;

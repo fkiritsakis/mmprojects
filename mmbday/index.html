@@ -5,22 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Χρόνια Πολλά!</title>
   
-  <!-- Direct preconnect & Google Fonts with explicit Greek subsetting -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;600;700&display=swap&subset=greek,greek-ext" rel="stylesheet">
   
-  <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link rel="stylesheet" href="style.css?v=2.0" />
+  <link rel="stylesheet" href="style.css?v=3.0" />
 </head>
 <body>
 
-  <!-- Fullscreen Fireworks Canvas -->
   <canvas id="fireworks-canvas"></canvas>
 
   <main class="container">
-    <!-- Countdown Header Section -->
     <header id="countdown-header">
       <h1 class="title">Αντίστροφη μέτρηση για τις 24 Ιουλίου</h1>
       <div class="timer-grid">
@@ -47,65 +43,73 @@
       </div>
     </header>
 
-    <!-- Pulsating & Rotating Envelope Zone -->
-    <section id="interactive-zone">
-      <div id="card-wrapper" class="animated-card">
-        <div class="envelope">
-          <div class="envelope-flap"></div>
-          <div class="envelope-body"></div>
-          <div class="heart-seal">❤️</div>
-        </div>
-      </div>
+    <!-- Stage Container for 3D Unfolding Scene -->
+    <div id="stage">
       
-      <div id="action-prompt">
-        <p id="lock-msg" class="prompt-text">🔒 Η κάρτα ανοίγει στις 24 Ιουλίου!</p>
-        <button id="open-btn" class="open-button hidden">Πίεσε για να ανοίξεις την κάρτα ✨</button>
-      </div>
-    </section>
+      <!-- Interactive Envelope -->
+      <section id="interactive-zone">
+        <div id="card-wrapper" class="animated-card">
+          <div class="envelope" id="main-envelope">
+            <div class="envelope-back"></div>
+            
+            <!-- Hidden Card inside envelope that will slide out -->
+            <div class="card-preview" id="card-preview"></div>
 
-    <!-- Vertical Booklet Card -->
-    <section id="revealed-card" class="hidden">
-      <div class="vertical-card">
+            <div class="envelope-flap" id="env-flap"></div>
+            <div class="envelope-front"></div>
+            <div class="heart-seal" id="heart-seal">❤️</div>
+          </div>
+        </div>
         
-        <!-- Top Half: Photo & Main Greeting -->
-        <div class="card-section section-top">
-          <h2 class="hbd-header">Χρόνια Πολλά!</h2>
+        <div id="action-prompt">
+          <p id="lock-msg" class="prompt-text">🔒 Η κάρτα ανοίγει στις 24 Ιουλίου!</p>
+          <button id="open-btn" class="open-button hidden">Πίεσε για να ανοίξεις την κάρτα ✨</button>
+        </div>
+      </section>
+
+      <!-- Full Revealed Vertical Card -->
+      <section id="revealed-card" class="hidden">
+        <div class="vertical-card" id="actual-card">
           
-          <div class="polaroid-frame">
-            <div class="tape-strip"></div>
-            <div class="image-container">
-              <img src="marnezaki.jpg" alt="Η αγαπημένη μας στιγμή" id="bday-photo" />
+          <div class="card-section section-top">
+            <h2 class="hbd-header">Χρόνια Πολλά!</h2>
+            
+            <div class="polaroid-frame">
+              <div class="tape-strip"></div>
+              <div class="image-container">
+                <img src="marnezaki.jpg" alt="Η αγαπημένη μας στιγμή" id="bday-photo" />
+              </div>
+              <p class="photo-caption">Το πιο όμορφο χαμόγελο! ✨</p>
             </div>
-            <p class="photo-caption">Το πιο όμορφο χαμόγελο! ✨</p>
           </div>
-        </div>
 
-        <!-- Horizontal Crease Line (Fold Mark) -->
-        <div class="card-crease-horizontal"></div>
+          <div class="card-crease-horizontal"></div>
 
-        <!-- Bottom Half: Handwritten Letter & Love Note -->
-        <div class="card-section section-bottom">
-          <div class="letter-content">
-            <p class="letter-text">
-              Στο πιο απίθανο άνθρωπο...
-            </p>
-            <p class="letter-text">
+          <div class="card-section section-bottom">
+            <div class="letter-content">
+              <p class="letter-text">
+                Στο πιο απίθανο άνθρωπο...
+              </p>
+              <p class="letter-text">
               Είσαι άνθρωπος που γεμίζει τους γύρω του ενέργεια, χαρά, γέλιο και ζεστασιά. Σε ευχαριστώ που μοιράζεσαι λίγο από τον εαυτό σου μαζί μου και κάνεις όλες τις στιγμές μας πιο όμορφες. Χρόνια σου πολλά και χαρούμενα Μαρνέζογλου!
+              </p>
+              <div class="letter-signature">— Αθεράπευτα Ερωτευμένος</div>
+            </div>
 
-            </p>
-            <div class="letter-signature">— Αθεράπευτα Ερωτευμένος</div>
+            <h3 class="love-footer">Σ' αγαπώ πολύ ❤️</h3>
           </div>
 
-          <h3 class="love-footer">Σ' αγαπώ πολύ ❤️</h3>
         </div>
+      </section>
 
-      </div>
-    </section>
+    </div>
   </main>
 
-  <script src="script.js?v=2.0"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
+
+
 
 
 
